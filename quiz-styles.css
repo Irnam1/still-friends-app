@@ -1,0 +1,193 @@
+/* Tous les thèmes possibles */
+
+.sky{
+    --background: linear-gradient(45deg, #4F80FF, #cff4fd);
+    --buttons-text: #94B9FF;
+    --buttons-bg: #fff;
+    --next-text: #FF8517;
+    --next-bg: #fff;
+}
+
+.orange{
+    --background: linear-gradient(45deg, #FFEA7E, #FFB194);
+    --buttons-text: #fff;
+    --buttons-bg: #FF9871;
+    --next-text: #94B9FF ;
+    --next-bg: #fff;
+}
+
+.peach{
+    --background: linear-gradient(45deg, #FF61D2, #FE9090);
+    --buttons-text: #EA3559;
+    --buttons-bg: #fff;
+    --next-text: #fff ;
+    --next-bg: #94B9FF;
+}
+
+.green{
+    --background: linear-gradient(45deg, #A8FF78, #78FFD6);
+    --buttons-text: #fff;
+    --buttons-bg: #FFA9F9;
+    --next-text: #FFA9F9 ;
+    --next-bg: #fff; 
+}
+
+.lavender{
+    --background: linear-gradient(45deg, #D586FF, #FCB2FF);
+    --buttons-text: #9500D8;
+    --buttons-bg: #FFF7AD;
+    --next-text: #FFF7AD ;
+    --next-bg: #B81AFF;
+}
+
+.yellowPink{
+    --background: linear-gradient(45deg, #FFA9F9, #FFF7AD);
+    --buttons-text: #F100E1;
+    --buttons-bg: #fff;
+    --next-text: #FFF7AD ;
+    --next-bg: #FFA9F9;
+}
+
+/*  !!!!! Gère le quiz !!!!! */
+
+#state{
+    margin-top: 0px;
+}
+
+#quiz{
+    width: 75% !important;
+    height: 75vh;
+    border-radius: 50px;
+    background: var(--background);
+    padding: 0;
+}
+
+#question {
+    color: white;
+    font-size: 40px;
+    text-align: center;
+    width:100%
+}
+
+#quiz-wrapper{
+    width: 80%;
+    margin-top: -10px;
+}
+
+.grid-row{
+    display: grid;
+    grid-template-columns: 70% 30%;
+    place-items: center;
+}
+
+#current-player-avatar, #avatar-img-popup{
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+}
+
+
+/* Gère les bouttons de réponse */
+
+.answer-btn {
+    background: var(--buttons-bg) ;
+    color:  var(--buttons-text);
+    font-weight: 500;
+    width: 40%;
+    padding: 10px 20px;
+    margin: 10px 0;
+    text-align: center;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.answer-btn:hover, .selected {
+    background: var(--buttons-text);
+    color: var(--buttons-bg)
+}
+
+.selected {
+    font-style: italic; 
+}
+
+
+
+#next-question-btn{
+    background: var(--next-bg);
+    color: var(--next-text);
+    font-weight: 500;
+    width: 300px;
+    border: 0;
+    padding: 10px;
+    margin: 20px auto 0;
+    border-radius: 30px;
+    cursor: pointer;
+    display: box;
+}
+
+/* Résultats du quiz */
+#result-container{
+    width:60%;
+    color: var(--buttons-bg);
+}
+
+
+#quiz-correction{
+    min-width: 60%;
+    max-width: 80%;
+    text-align: center;
+    padding: 15px 15px;
+    background: white;
+    color: black;
+    border-radius: 30px;
+}
+
+
+#quiz-results{
+    width: 75% !important;
+    height: 75vh;
+    border-radius: 50px;
+    background: var(--background);
+    display: none;
+    padding: 20px 0;
+}
+
+#result{
+    font-size: 40px;
+    background: var(--buttons-bg);
+    color: var(--buttons-text);
+    border-radius: 30px;
+    padding: 5px;
+}
+
+#avatars-results{
+    width: 50%;
+    margin: -10px;
+}
+
+.avatars-results-container{
+    width:90px;
+    height: 90px;
+    border-radius: 50%;
+    margin-bottom: 5px;
+}
+#still-friends-answer{
+    margin-bottom: -20px;
+    font-size: 30px;
+}
+
+#take-revenge-btn{
+    display: none;
+}
+
+.wrapper {
+    width: 70%;
+    height: 55%;
+    justify-content: start;
+}
+
+.p1-answer{
+    color: #4FA800;
+}

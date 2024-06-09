@@ -1,0 +1,247 @@
+*{
+    box-sizing: border-box;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+:root {
+
+    --lavender-theme-gradient: linear-gradient(45deg, #D586FF, #FCB2FF);
+    --green-theme-gradient: linear-gradient(45deg, #A8FF78, #78FFD6);
+    --yellowPink-theme-gradient: linear-gradient(45deg, #FFA9F9, #FFF7AD);
+    --orange-theme-gradient: linear-gradient(45deg, #FFEA7E, #FFB194);
+    --sky-theme-gradient: linear-gradient(45deg, #4F80FF, #cff4fd);
+    --peach-theme-gradient: linear-gradient(45deg, #FF61D2, #FE9090);
+
+
+    --background: linear-gradient(45deg, #FF512F, #DD2476);
+    --buttons-text: #EA3559;
+    --buttons-bg: #fff;
+    --next-text: #fff;
+    --next-bg: #94B9FF;
+}
+
+
+#edit-profiles{
+    display: flex;
+    z-index: 555;
+}
+
+#quiz-game{
+    display: none;
+}
+
+#logo, h2{
+    text-align: center;
+}
+
+#logo{
+    font-size: 50px;
+    margin-top: 0;
+}
+
+.agbalumo-regular {
+    font-family: "Agbalumo", system-ui;
+    font-weight: 400;
+    font-style: normal;
+  }
+ 
+h2{
+    font-weight: normal;
+    font-size: 23px;
+}  
+
+.bold{
+font-weight: bold;
+}
+
+input{
+    text-align: center;
+    border: none;
+    border-radius: 30px;
+    padding:3px 0;
+}
+
+
+
+.canva{
+    width: 85%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+/* Gère FLEXBOX et la façon dont ça s'affiche */
+.flex-row {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.flex-column {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+/* Versus au centre de la page */
+.versus{
+    font-size: 60px;
+}
+
+/* TOUTE LA BOITE AVATAR ET THEME */
+.container{
+    width: 350px;
+    height: 400px;
+    border-radius: 40px;
+}
+
+.p1-chosen-theme{
+    background: var(--lavender-theme-gradient);
+}
+
+.p2-chosen-theme{
+    background: var(--orange-theme-gradient);
+}
+
+.profiles-chosen-avatar-container{
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+}
+
+.avatar-theme-options-container{
+    width: 300px;
+    height:150px;
+    background-color: white;
+    border-radius: 30px;
+}
+
+
+/* CHOIX de L'AVATAR */
+.avatar-options {
+    width: 80%;
+    height: 50%;
+}
+
+.avatar-option {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-image: url("Sources/avatar-ours.png");
+    background-size: 130%;
+    background-position: center;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.avatar-option:hover{
+    border: 2px solid black;
+}
+
+.avatar-img {
+    width: 100%;
+    height: 100%;    
+}
+
+
+/* CHOIX DU THEME */
+.theme-options {
+    width: 70%;
+    height: 40%;
+}
+
+.theme-option {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.theme-option:hover{
+    width: 55px;
+    height: 55px;
+    cursor: pointer;
+}
+
+.T1{
+    background: var(--lavender-theme-gradient);
+}
+
+.T2 {
+    background: var(--green-theme-gradient);
+}
+.T3 {
+    background: var(--yellowPink-theme-gradient);
+}
+
+.T4 {
+    background: var(--orange-theme-gradient);
+}
+
+.T5{
+    background: var(--sky-theme-gradient);
+}
+
+.T6{
+    background: var(--peach-theme-gradient);
+}
+
+/* button valider */
+#start-quiz-btn, #ok-btn{
+    margin-top: 20px;
+    border: none;
+    background-color: #ffea7e;
+    padding: 10px 30px;
+    border-radius: 30px;
+}
+
+#start-quiz-btn:hover{
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Specific au popup */
+
+
+#popup-info{
+    width: 60%;
+    height: 70%;
+    border-radius: 65px;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -45%);
+    background: white;
+    z-index: 999;
+    display: none;
+}
+
+.player1 {
+    color: black;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.popup-text{
+    font-size: 1.2rem;
+    width: 70%;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+

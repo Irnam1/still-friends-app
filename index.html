@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz en cours</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./quiz-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Agbalumo&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1 id="logo" class="agbalumo-regular">Still friends ?</h1>
+    </header>
+
+    <main>
+        <section id="edit-profiles" class="flex-column">
+            <h2>Choisir un <span class="bold">avatar</span> et un <span class="bold">thème</span>.</h2>
+
+            <div class="canva">
+
+                <div id="p1-profile" class="container flex-column p1-chosen-theme">
+
+                    <!-- AVATAR CHOISI PAR L'UTILISATEUR -->
+                    <div class="profiles-chosen-avatar-container">
+                        <img id="p1-chosen-avatar" src="sources/avatar-singe.png" alt="singe" class="avatar-img">
+                    </div>
+
+                    <!-- ENTRER UN PSEUDO -->
+                    <label for="p1-pseudo" class="flex-column">Joueur1 :<input type="text" id="p1-pseudo" name="p1-pseudo" pattern='' placeholder="Entrez un pseudo ici..."></label>
+
+                    <!-- contient CHOIX AVATAR et CHOIX THEME-->
+                    <div class="avatar-theme-options-container flex-column">
+                        <!-- AVATARS -->
+                        <div id="p1-avatar-options" class="avatar-options flex-row" data-index="0">
+                            <div class="avatar-option"><img src="sources/avatar-cerf.png" alt="cerf qui se réchauffe près du feu" class="avatar-img"></div>
+                            <div class="avatar-option"><img src="sources/avatar-singe.png" alt="singe qui jardine" class="avatar-img"></div>
+                            <div class="avatar-option"><img src="sources/avatar-oiseau.png" alt="oiseau qui pêche des poissons" class="avatar-img"></div>
+                        </div>
+                        <!-- THEMES -->
+                        <div id="p1-theme-options" class="theme-options flex-row" data-index="0">
+                            <div class="theme-option T1" data-colors="lavender" data-gradient="var(--lavender-theme-gradient)"></div>
+                            <div class="theme-option T2" data-colors="green" data-gradient="var(--green-theme-gradient)"></div>
+                            <div class="theme-option T3" data-colors="yellowPink" data-gradient="var(--yellowPink-theme-gradient)"></div>
+                        </div>
+                    </div>
+                </div>
+            <div>
+
+                <p class="versus agbalumo-regular">VS.</p>
+
+            </div>
+
+                <div id="p2-profile" class="container flex-column p2-chosen-theme">
+
+                    <!-- AVATAR CHOISI PAR L'UTILISATEUR -->
+                    <div class="profiles-chosen-avatar-container">
+                        <img id="p2-chosen-avatar" src="sources/avatar-herisson.png" alt="herisson" class="avatar-img">
+                    </div>
+
+                    <!-- ENTRER UN PSEUDO -->
+                    <label for="p2-pseudo" class="flex-column">Joueur2: <input type="text" id="p2-pseudo" name="p2-pseudo" pattern='' placeholder="Entrez un pseudo ici..."></label>
+
+                    <!-- contient CHOIX AVATAR et CHOIX THEME-->
+                    <div class="avatar-theme-options-container flex-column">
+                        <!-- AVATARS -->
+                        <div id="p2-avatar-options" class="avatar-options flex-row" data-index="1">
+                            <div class="avatar-option"><img src="sources/avatar-ours.png" alt="ours avec brochette de chamalo" class="avatar-img"></div>
+                            <div class="avatar-option"><img src="sources/avatar-herisson.png" alt="herisson avec une tasse de the chaud" class="avatar-img"></div>
+                            <div class="avatar-option"><img src="sources/avatar-grenouille.png" alt="grenouille qui chasse des mouche au filet" class="avatar-img"></div>
+                        </div>
+                        <!-- THEMES -->
+                        <div id="p2-theme-options" class="theme-options flex-row" data-index="1">
+                            <div class="theme-option T4" data-colors="orange" data-gradient="var(--orange-theme-gradient)"></div>
+                            <div class="theme-option T5" data-colors="sky" data-gradient="var(--sky-theme-gradient)"></div>
+                            <div class="theme-option T6" data-colors="peach" data-gradient="var(--peach-theme-gradient)"></div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="flex-column">
+                <button id="start-quiz-btn" type="button" name="Suivant">Commencer le quiz</button>
+            </div>
+        </section>
+
+        <section id="quiz-game">
+
+            <!-- Popup qui annonce au joueur leur tour -->
+            <div id="popup-info" class="canva flex-row">
+                <div class="flex-column">
+                    <div id="popup-images">
+                        <img id="avatar-img-popup" src="sources/avatar-singe.png" alt="singe" class="avatar-img">
+                    </div>
+                    <p class="popup-text"><span id="player-pseudo" class="agbalumo-regular player1">Cynthia</span></p>
+                    <p id="popup-game-state" class="popup-text">C’est ton tour !</p>
+                    <p id="popup-instructions" class="popup-text">Réponds à chaque question par la réponse qui te ressemble le plus.</p>
+                    <button id="ok-btn" type="button" name="ok">OK !</button>
+                </div>
+            </div>
+            
+            <!-- Quizz : affiche les questions -->
+            <div class="flex-column">
+
+                <!-- quiz -->
+                <div id="quiz" class="canva flex-column" >
+                    <h2 id="state"><span class="bold">Cynthia</span> répond au question...</h2>
+                
+                    <div id="quiz-wrapper" class="grid-row">
+                        <p id="question" class="agbalumo-regular">Devrais je <span>abandonner</span> mon quiz ?</p>
+                        <div>
+                            <img id="current-player-avatar" src="sources/avatar-singe.png" alt="singe" class="avatar-img">
+                        </div>
+                    </div>
+                    <div id="answer-buttons" class="flex-row">
+                        <button type="button" class="answer-btn">Surement pas !</button>
+                        <button type="button" class="answer-btn">Je ne sais plus quoi penser.</button>
+                        <button type="button" class="answer-btn">Un repos serait le bienvenu.</button>
+                        <button type="button" class="answer-btn">Oui c'est sûr !</button>
+                    </div>
+                    <button type="button" id="next-question-btn"> QUESTION SUIVANTE !</button>
+                </div>
+                <!-- résultat final -->
+                
+                <div id="quiz-results" class="canva flex-column">
+                    <div class="wrapper flex-column">
+                        <p id="still-friends-answer">Plus maintenant !</p>
+                        <p id="result" class="agbalumo-regular flex-column">100%</p>                      
+                        <div id="avatars-results" class="flex-row">
+                                <div id="results-avatar-p1" class="avatars-results-container">
+                                    <img id="p1-chosen-avatar" src="sources/avatar-singe.png" alt="singe" class="avatar-img">
+                                </div>
+                                <p class="agbalumo-regular">Vs.</p>
+                                <div id="results-avatar-p2" class="avatars-results-container">
+                                    <img id="p1-chosen-avatar" src="sources/avatar-oiseau.png" alt="singe" class="avatar-img">
+                                </div>
+                        </div> 
+                    </div>                 
+                        <p id="quiz-correction">
+                            <!-- Quelle est couleur préféré: rouge | bleu <br>
+                            Quelle est ta fleur préféré: rose <br>
+                            Quelle est ton hamburger préféré: cheeseburger | bigmac <br>
+                            Quelle est ta destination de rêve: Tahiti | Hawaii <br>
+                            Le plus important dans la vie: bonheur <br>    
+                            Le meilleur jour de la semaine: lundi | vendredi <br>
+                            Ton émission préférée: Koh Lanta | Pekin Express <br> -->
+                        </p>
+                    <button id="take-revenge-btn">Revanche !</button>
+                </div>
+            </div>
+        </section>  
+
+        <!-- Script module -->
+        <script type="module" src="script.js"></script>
+    </main>
+
+    <footer>
+        <!-- Ajouter des éléments au besoin -->
+    </footer>
+</body>
+</html>
