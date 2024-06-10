@@ -11,7 +11,7 @@ export const profilesData = [
     {
         playerIndex: 1,
         pseudo:"playertwo",
-        avatarSource:"sources/avatar-herisson.png",
+        avatarSource:"assets/avatar-herisson.png",
         theme:"orange",
     }
 ]
