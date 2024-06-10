@@ -20,7 +20,6 @@ const popupGameStateText = document.getElementById('popup-game-state')
 const popupQuizInstructions= document.getElementById('popup-instructions')
 const popupImages= document.getElementById('popup-images')
 
-// New   !!!
 const resultsAvatarsContainerP1= document.getElementById('results-avatar-p1')
 const resultsAvatarsContainerP2= document.getElementById('results-avatar-p2')
 const quizCorrection = document.getElementById('quiz-correction')
@@ -57,23 +56,32 @@ function closePopup() {
     popup.style.display = "none";
 }
 
+function setPopupText(situation){
+    popupGameStateText.innerHTML = situation[0]
+    popupQuizInstructions.innerHTML = situation[1]
+}
+
+const popupPossibleText ={
+    playerOne : ["C'est ton tour !",'Réponds à chaque question par la réponse qui te ressemble le plus.'],
+    playerTwo : ["À toi de jouer !", 'Essaye de deviner les réponses.'],
+    endQuiz : ["C'est terminé !", `Voyons à quel point 
+    vous vous connaissez !`]
+}
+
 function showWhoseTurnPopup(){
     popup.style.display="flex";
     currentPlayerPseudo.innerHTML= profilesData[currentPlayer].pseudo
     if(currentPlayer === 0){
-        popupGameStateText.innerHTML="C'est ton tour !"
-        popupQuizInstructions.innerHTML = 'Réponds à chaque question par la réponse qui te ressemble le plus.'
+        setPopupText(popupPossibleText.playerOne)
     } else {
-        popupGameStateText.innerHTML = "À toi de jouer !"
-        popupQuizInstructions.innerHTML = 'Essaye de deviner les réponses.'
+        setPopupText(popupPossibleText.playerTwo)
     }
 }
 
 function showEndQuizPopup(){
     popup.style.display="flex";
-    popupGameStateText.innerHTML="C'est terminé !"
-    popupQuizInstructions.innerHTML = `Voyons à quel point 
-    vous vous connaissez !`
+    setPopupText(popupPossibleText.endQuiz)
+
     while(popupImages.firstChild){
         popupImages.removeChild(popupImages.firstChild);
     }
@@ -86,7 +94,6 @@ function showEndQuizPopup(){
 // FONCTION QUI GERE LES CHANGEMENTS DE PROFIL ENTRE LES JOUEURS
 // function qui switch à l'avatar du joueur actuel
 function switchToCurrentPlayerAvatar(currentPlayerIndex, container){
-    container.setAttribute('src', profilesData[currentPlayerIndex].avatarSource)
     container.setAttribute('src', profilesData[currentPlayerIndex].avatarSource)
 } 
 
