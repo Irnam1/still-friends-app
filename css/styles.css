@@ -416,7 +416,12 @@ input{
     justify-content: start;
 }
 
-.p1-answer{
-    color: #4FA800;
+
+.green{
+    color: green;
 }
 
+.red{
+    color: red;
+    text-decoration:line-through;
+}

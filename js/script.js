@@ -2,8 +2,6 @@
 import {questions, randomQuestionsSelection} from './questions.js'
 import { profilesData, pseudoValueP1, pseudoValueP2, startQuizBtn} from './profils.js';
 
-console.log(randomQuestionsSelection)
-
 // Toutes les constantes du quiz
 const gameState = document.getElementById("state");
 const questionElement = document.getElementById('question');
@@ -244,7 +242,6 @@ function handleEndQuiz(){
         displayQuestions();
 
     } else {
-        console.log(correctionArray)
         showEndQuizPopup()
         switchToResultsView()
         displayResults()
@@ -263,18 +260,9 @@ function displayResults(){
     switchToCurrentPlayerAvatar(0, resultsAvatarsContainerP1.firstElementChild)
     switchToCurrentPlayerAvatar(1, resultsAvatarsContainerP2.firstElementChild)
     
-
-    for (const element of correctionArray){
-    let questionCorrection = questions[element.idQuestion].shorterQuestion
-    let answerPlayerOne = questions[element.idQuestion].answers[element.idAnswerPlayerOne-1].text
-    let answerPlayerTwo = questions[element.idQuestion].answers[element.idAnswerPlayerTwo-1].text
-    quizCorrection.innerHTML += `${questionCorrection} <span class="bold"><span class="p1-answer">${answerPlayerOne}</span> | ${answerPlayerTwo}</span>`+ '<br>';
-    }
-
-
     const correctAnswersCount = calculateCorrectAnswersCount()
     result.innerHTML = `${correctAnswersCount}%`
-    console.log(correctAnswersCount)
+
     if(0<=correctAnswersCount && correctAnswersCount<20){
         resultQuote.innerHTML='Plus maintenant !'
     } else if (20<=correctAnswersCount && correctAnswersCount<50){
@@ -284,7 +272,17 @@ function displayResults(){
     } else {
         resultQuote.innerHTML='Best friends!'
     }
-    
+
+    for (const element of correctionArray){
+    let questionCorrection = questions[element.idQuestion].shorterQuestion
+    let answerPlayerOne = questions[element.idQuestion].answers[element.idAnswerPlayerOne-1].text
+    let answerPlayerTwo = questions[element.idQuestion].answers[element.idAnswerPlayerTwo-1].text
+    if(element.correction=== true) {
+    quizCorrection.innerHTML += `${questionCorrection} <span class='bold green'>${answerPlayerTwo}</span>`+ '<br>';
+    } else{
+        quizCorrection.innerHTML += `${questionCorrection} <span class='bold red'>${answerPlayerTwo}</span> | ${answerPlayerOne}`+ '<br>';
+    }
+    }    
 }
 
 // fonction qui calcule le résultat final
@@ -294,10 +292,12 @@ function calculateCorrectAnswersCount(){
     for (const element of correctionArray){
             if(element.idAnswerPlayerOne === element.idAnswerPlayerTwo){
                 correctAnswersCount ++
-            } 
+                element.correction = true
+            } else {
+                element.correction = false
+            }
         }
     let resultatFormate = ((correctAnswersCount / numberOfQuestion ) * 100).toFixed(0);
-    
     return resultatFormate
 }
 
